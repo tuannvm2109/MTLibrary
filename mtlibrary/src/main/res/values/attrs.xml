@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ImageGallerySlideView">
+        <attr name="slideButtonVisibility">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="1" />
+            <enum name="gone" value="2" />
+        </attr>
+
+        <attr name="childImageHeight" format="dimension" />
+
+        <attr name="childImageWidth" format="dimension" />
+
+        <attr name="childImageCorner" format="dimension" />
+
+        <attr name="mainImageHeight" format="dimension" />
+
+        <attr name="mainImageCorner" format="dimension" />
+
+    </declare-styleable>
+</resources>
