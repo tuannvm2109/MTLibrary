@@ -130,49 +130,13 @@
     <string name="txt_title_notification_detail">Chi tiết thông báo</string>
     <string name="txt_title_notification_apartment">Chi tiết căn hộ</string>
     <string name="txt_title_service">Dịch vụ</string>
-
-    <string name="txt_title_profile">Căn hộ của tôi</string>
-    <string name="txt_title_outstanding_apartment">Căn hộ nổi bật</string>
-    <string name="txt_title_outstanding_room">Căn phòng nổi bật</string>
-    <string name="txt_title_convenience_service">Dịch vụ tiện ích</string>
-
-    <string name="txt_home_search">Tìm căn hộ theo Quận, Giá, Loại phòng</string>
-    <string name="txt_home_search_district">Tìm theo quận</string>
-    <string name="txt_home_search_price">Tìm theo giá</string>
-    <string name="txt_home_search_room">Tìm theo phòng</string>
-    <string name="txt_home_trend_search">Xu hướng tìm kiếm</string>
-    <string name="txt_home_outstanding_apartment">Căn hộ nổi bật</string>
-    <string name="txt_home_outstanding_room">Phòng nổi bật</string>
-    <string name="txt_home_convenient_service">Dịch vụ tiện ích</string>
-    <string name="txt_home_search_apartment">Tìm kiếm căn hộ cho thuê</string>
-    <string name="txt_home_search_district_hint">Quận cần tìm</string>
-    <string name="txt_home_search_room_hint">Loại phòng</string>
-    <string name="txt_home_search_price_hint">Mức giá</string>
-    <string name="txt_home_search_category_apartment">Nhà nguyên căn</string>
-    <string name="txt_home_search_category_apartment_2">Danh sách nhà nguyên căn</string>
-    <string name="txt_home_search_category_room">Phòng</string>
-    <string name="txt_home_search_category_room_2">Danh sách phòng</string>
-    <string name="txt_home_search_category_all_2">Danh sách Nhà nguyên căn và Phòng</string>
-    <string name="txt_home_search_price_range">Khoảng giá: </string>
-    <string name="txt_home_search_price_room_1">Dưới 1.000.000đ</string>
-    <string name="txt_home_search_price_room_2">Từ 1.000.000đ đến 2.000.000đ</string>
-    <string name="txt_home_search_price_room_3">Từ 2.000.000đ đến 3.000.000đ</string>
-    <string name="txt_home_search_price_room_4">Từ 3.000.000đ đến 5.000.000đ</string>
-    <string name="txt_home_search_price_room_5">Từ 5.000.000đ đến 10.000.000đ</string>
-    <string name="txt_home_search_price_room_6">Trên 10.000.000đ</string>
-
-    <string name="txt_service_search_hint">Nhập vào dịch vụ bạn cần tìm</string>
     <string name="txt_service_list">Danh sách dịch vụ</string>
-    <string name="txt_service_partner">Đối tác của</string>
-    <string name="txt_service_cas">CAS APARTMENT</string>
 
-    <string name="txt_profile_contract">Hợp đồng</string>
-    <string name="txt_profile_contract_id">Mã hợp đồng</string>
-
-    <string name="txt_detail_price">Giá :</string>
-    <string name="txt_detail_condition">Tình trạng:</string>
-    <string name="txt_detail_acreage">Diện tích:</string>
-    <string name="txt_detail_interior">Nội thất tiện nghi</string>
-    <string name="txt_detail_post_day">Ngày đăng</string>
-    <string name="txt_detail_no_furniture">Không có nội thất nào</string>
+    <string name="txt_home_search_price_range">Khoảng giá: </string>
+    <string name="txt_home_search_price_1">Dưới 1.000.000đ</string>
+    <string name="txt_home_search_price_2">Từ 1.000.000đ đến 2.000.000đ</string>
+    <string name="txt_home_search_price_3">Từ 2.000.000đ đến 3.000.000đ</string>
+    <string name="txt_home_search_price_4">Từ 3.000.000đ đến 5.000.000đ</string>
+    <string name="txt_home_search_price_5">Từ 5.000.000đ đến 10.000.000đ</string>
+    <string name="txt_home_search_price_6">Trên 10.000.000đ</string>
 </resources>
