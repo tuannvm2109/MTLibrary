@@ -2,6 +2,7 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
 
     <dimen name="textSizeGiant">@dimen/_20sdp</dimen>
+    <dimen name="textSizeTitle2">@dimen/_18sdp</dimen>
     <dimen name="textSizeTitle">@dimen/_15sdp</dimen>
     <dimen name="textSizeBig1">@dimen/_14sdp</dimen>
     <dimen name="textSizeBig2">@dimen/_13sdp</dimen>

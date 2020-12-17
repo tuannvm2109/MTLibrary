@@ -61,12 +61,15 @@
     <string name="txt_verify_otp_title">Xác nhận OTP</string>
     <string name="txt_enter_otp">Nhập OTP</string>
     <string name="txt_resent_otp">Gửi lại mã xác nhận</string>
+    <string name="txt_resent_otp_2">Gửi lại mã</string>
     <string name="txt_enter_verify_code">Nhập mã xác minh</string>
     <string name="txt_continue">Tiếp tục</string>
     <string name="txt_confirm">Xác nhận</string>
     <string name="txt_no_data">Không có dữ liệu</string>
     <string name="txt_register_success_title">Tạo tài khoản thành công</string>
     <string name="txt_register_success_content">Bấm để quay lại màn hình đăng nhập</string>
+    <string name="txt_register_success_title_2">Đăng kí thành công</string>
+    <string name="txt_register_success_content_2">Vui lòng chờ Admin xét duyệt trước khi bạn có thể đăng nhập</string>
     <string name="txt_register_referrer_code">Mã số người giới thiệu</string>
     <string name="txt_take_photo">Chụp ảnh</string>
     <string name="txt_upload_photo">Tải ảnh</string>

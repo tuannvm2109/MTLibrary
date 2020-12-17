@@ -2,4 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nvmt.android.mtlibrary">
 
+    <application>
+        <activity
+            android:name=".base.captureimage.CaptureImageActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/SplashTheme" />
+
+    </application>
 </manifest>
