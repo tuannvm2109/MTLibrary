@@ -29,6 +29,7 @@ abstract class BaseViewModel : ViewModel() {
     val ioException = MutableLiveData<EventOnce<String>>()
     val unknownError = MutableLiveData<EventOnce<String>>()
     val tooManyRequestException = MutableLiveData<EventOnce<Boolean>>()
+    val debugError = MutableLiveData<EventOnce<String>>()
 
     open fun showLoading() {
         isLoading.value = EventOnce(true)
@@ -66,10 +67,12 @@ abstract class BaseViewModel : ViewModel() {
         onError(throwable)
     }
 
+    abstract fun isDebug(): Boolean
+
     open fun onError(throwable: Throwable?) {
         hideLoading()
         Log.d("asdfErrorOkHttp", "${throwable?.message}")
-        if (MTConstant.DEBUG_API) {
+        if (isDebug()) {
             try {
                 if (throwable is HttpException) {
                     onUnknownError(
@@ -77,7 +80,7 @@ abstract class BaseViewModel : ViewModel() {
                             (throwable).response()?.errorBody()?.string()
                         ).toString()
                     )
-                } else onUnknownError(JSONObject(throwable?.message ?: "").toString())
+                } else debugError.value = EventOnce(JSONObject(throwable?.message ?: "").toString())
             } catch (e: Exception) {
                 onUnknownError("")
             }

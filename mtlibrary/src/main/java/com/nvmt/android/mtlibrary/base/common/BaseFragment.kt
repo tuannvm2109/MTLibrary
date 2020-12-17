@@ -76,11 +76,6 @@ abstract class BaseFragment<ViewBinding : ViewDataBinding, ViewModel : BaseViewM
             unknownError.observe(requireActivity(), Observer {
                 if (context == null) return@Observer
                 it.getContentIfNotHandled()?.let {
-                    if (MTConstant.DEBUG_API) {
-                        showAlert(it)
-                        return@let
-                    }
-
                     if (it.isBlank()) showAlert(getString(R.string.message_unknown_error))
                     else showAlert(it)
                 }
@@ -121,6 +116,12 @@ abstract class BaseFragment<ViewBinding : ViewDataBinding, ViewModel : BaseViewM
                 if (context == null) return@Observer
                 it.getContentIfNotHandled()?.let { it ->
                     if (it) showAlert(getString(R.string.message_too_many_request))
+                }
+            })
+            debugError.observe(requireActivity(), Observer {
+                if (context == null) return@Observer
+                it.getContentIfNotHandled()?.let {
+                    showAlert(it)
                 }
             })
         }
