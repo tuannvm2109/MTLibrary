@@ -2,6 +2,7 @@ package com.nvmt.android.mtlibrary.extension
 
 import android.Manifest
 import android.app.Activity
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.view.MenuItem
 import android.view.View
@@ -17,6 +18,7 @@ import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
 import com.nvmt.android.mtlibrary.R
+import com.nvmt.android.mtlibrary.base.captureimage.CaptureImageActivity
 
 
 const val OPEN_CAMERA = 0
@@ -108,7 +110,9 @@ fun Fragment.openImagePicker(requestCode: Int, type: Int) {
     if (context == null) return
     when (type) {
         OPEN_CAMERA -> {
-            ImagePicker.cameraOnly().start(this, requestCode)
+            val intent = Intent(requireContext(), CaptureImageActivity::class.java)
+            startActivityForResult(intent, requestCode)
+//            ImagePicker.cameraOnly().start(this, requestCode)
         }
         OPEN_FOLDER -> {
             ImagePicker.create(this)
@@ -206,10 +210,13 @@ fun Activity.openImagePicker(requestCode: Int, type: Int) {
     if (isFinishing) return
     when (type) {
         OPEN_CAMERA -> {
-            ImagePicker.create(this)
-                .returnMode(ReturnMode.CAMERA_ONLY)
-                .single()
-                .start(requestCode)
+            val intent = Intent(this, CaptureImageActivity::class.java)
+            startActivityForResult(intent, requestCode)
+
+//            ImagePicker.create(this)
+//                .returnMode(ReturnMode.CAMERA_ONLY)
+//                .single()
+//                .start(requestCode)
         }
         OPEN_FOLDER -> {
             ImagePicker.create(this)
