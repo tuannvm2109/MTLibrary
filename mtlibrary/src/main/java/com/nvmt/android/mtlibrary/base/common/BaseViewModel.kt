@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.nvmt.android.mtlibrary.di.scheduler.AndroidSchedulerProvider
 import com.esmac.android.appcas.di.scheduler.SchedulerProvider
-import com.nvmt.android.mtlibrary.base.Constant
+import com.nvmt.android.mtlibrary.base.MTConstant
 import com.nvmt.android.mtlibrary.base.EventOnce
 import io.reactivex.disposables.CompositeDisposable
 import okhttp3.ResponseBody
@@ -69,7 +69,7 @@ abstract class BaseViewModel : ViewModel() {
     open fun onError(throwable: Throwable?) {
         hideLoading()
         Log.d("asdfErrorOkHttp", "${throwable?.message}")
-        if (Constant.DEBUG_API) {
+        if (MTConstant.DEBUG_API) {
             try {
                 if (throwable is HttpException) {
                     onUnknownError(

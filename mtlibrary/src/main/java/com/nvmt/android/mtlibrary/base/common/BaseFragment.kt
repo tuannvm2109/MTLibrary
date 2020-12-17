@@ -15,7 +15,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.databinding.library.baseAdapters.BR
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import com.nvmt.android.mtlibrary.base.Constant
+import com.nvmt.android.mtlibrary.base.MTConstant
 import com.nvmt.android.mtlibrary.extension.showDialogAlert
 import com.nvmt.android.mtlibrary.R
 import retrofit2.HttpException
@@ -76,7 +76,7 @@ abstract class BaseFragment<ViewBinding : ViewDataBinding, ViewModel : BaseViewM
             unknownError.observe(requireActivity(), Observer {
                 if (context == null) return@Observer
                 it.getContentIfNotHandled()?.let {
-                    if (Constant.DEBUG_API) {
+                    if (MTConstant.DEBUG_API) {
                         showAlert(it)
                         return@let
                     }

@@ -3,10 +3,10 @@ package com.nvmt.android.mtlibrary.base.recyclerview
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.nvmt.android.mtlibrary.base.Constant
+import com.nvmt.android.mtlibrary.base.MTConstant
 
 abstract class EndlessRecyclerOnScrollListener(
-    threshold: Int = Constant.DEFAULT_NUM_VISIBLE_THRESHOLD
+    threshold: Int = MTConstant.DEFAULT_NUM_VISIBLE_THRESHOLD
 ) : RecyclerView.OnScrollListener() {
 
     // The total number of items in the dataset after the last load
@@ -18,7 +18,7 @@ abstract class EndlessRecyclerOnScrollListener(
     private var numberThreshold: Int = if (threshold >= 1) {
         threshold
     } else {
-        Constant.DEFAULT_NUM_VISIBLE_THRESHOLD
+        MTConstant.DEFAULT_NUM_VISIBLE_THRESHOLD
     }
 
     override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {

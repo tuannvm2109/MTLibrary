@@ -1,7 +1,7 @@
 package com.nvmt.android.mtlibrary.base.recyclerview
 
 import androidx.lifecycle.MutableLiveData
-import com.nvmt.android.mtlibrary.base.Constant
+import com.nvmt.android.mtlibrary.base.MTConstant
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -76,19 +76,19 @@ abstract class BaseLoadMoreRefreshViewModel() : BaseRefreshViewModel() {
     /**
      * override if first page is not 1
      */
-    open fun getFirstPage() = Constant.DEFAULT_FIRST_PAGE
+    open fun getFirstPage() = MTConstant.DEFAULT_FIRST_PAGE
 
     private fun getPreFirstPage() = getFirstPage() - 1
 
     /**
      * override if need change number visible threshold
      */
-    open fun getLoadMoreThreshold() = Constant.DEFAULT_NUM_VISIBLE_THRESHOLD
+    open fun getLoadMoreThreshold() = MTConstant.DEFAULT_NUM_VISIBLE_THRESHOLD
 
     /**
      * override if need change number item per page
      */
-    open fun getNumberItemPerPage() = Constant.DEFAULT_ITEM_PER_PAGE
+    open fun getNumberItemPerPage() = MTConstant.DEFAULT_ITEM_PER_PAGE
 
     /**
      * reset load more

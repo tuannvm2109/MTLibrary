@@ -122,8 +122,10 @@
     <string name="txt_tech_support">Hỗ trợ kỹ thuật</string>
     <string name="txt_edit">Sửa</string>
     <string name="txt_call">Gọi</string>
+    <string name="txt_or">Hoặc</string>
     <string name="txt_search">Tìm</string>
     <string name="txt_schedule_now">Đặt hẹn ngay</string>
+    <string name="txt_image">Hình ảnh</string>
 
     <string name="txt_title_home">Trang chủ</string>
     <string name="txt_title_notification">Thông báo</string>

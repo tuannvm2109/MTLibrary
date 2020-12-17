@@ -1,12 +1,6 @@
 package com.nvmt.android.mtlibrary.base
 
-object Constant {
-    const val DEBUG_API = false
-    const val DEBUG_AUTH_FAST = false
-    const val DEBUG_AUTH_SLOW = false
-    const val DEBUG_FAKE_API = false
-    const val DEBUG_NOTIFICATION = true
-
+object MTConstant {
     const val DEFAULT_FIRST_PAGE = 1
     const val DEFAULT_NUM_VISIBLE_THRESHOLD = 3
     const val DEFAULT_ITEM_PER_PAGE = 20

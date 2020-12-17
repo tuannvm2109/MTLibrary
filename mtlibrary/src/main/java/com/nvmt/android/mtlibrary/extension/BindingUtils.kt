@@ -5,7 +5,7 @@ import android.view.View
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.nvmt.android.mtlibrary.base.Constant
+import com.nvmt.android.mtlibrary.base.MTConstant
 
 
 @BindingAdapter("onRefreshListener")
@@ -29,7 +29,7 @@ fun View.setClickSafe(listener: View.OnClickListener?) {
         var lastClickTime: Long = 0
 
         override fun onClick(v: View) {
-            if (SystemClock.elapsedRealtime() - lastClickTime < Constant.THRESHOLD_CLICK_TIME) {
+            if (SystemClock.elapsedRealtime() - lastClickTime < MTConstant.THRESHOLD_CLICK_TIME) {
                 return
             }
             listener?.onClick(v)
@@ -44,7 +44,7 @@ fun View.setSingleClick(execution: () -> Unit) {
         var lastClickTime: Long = 0
 
         override fun onClick(p0: View?) {
-            if (SystemClock.elapsedRealtime() - lastClickTime < Constant.THRESHOLD_CLICK_TIME) {
+            if (SystemClock.elapsedRealtime() - lastClickTime < MTConstant.THRESHOLD_CLICK_TIME) {
                 return
             }
             lastClickTime = SystemClock.elapsedRealtime()
