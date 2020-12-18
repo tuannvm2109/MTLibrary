@@ -24,14 +24,11 @@ import com.nvmt.android.mtlibrary.base.captureimage.CaptureImageActivity
 const val OPEN_CAMERA = 0
 const val OPEN_FOLDER = 1
 
-const val REQUEST_CAPTURE_IMG = 22
-const val REQUEST_UPLOAD_IMG = 33
-
 private val REQUEST_PERMISSION = 456
 private val permissions =
     listOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE)
 
-fun Fragment.showPopupTakePicture(anchorView: View) {
+fun Fragment.showPopupTakePicture(requestCode: Int, anchorView: View) {
     val ctx = context ?: return
     val popup = PopupMenu(ctx, anchorView)
     popup.inflate(R.menu.popup_image_picker)
@@ -46,7 +43,7 @@ fun Fragment.showPopupTakePicture(anchorView: View) {
                         .withListener(object : PermissionListener {
                             override fun onPermissionGranted(response: PermissionGrantedResponse?) {
                                 if (response?.permissionName == Manifest.permission.CAMERA) {
-                                    openImagePicker(REQUEST_CAPTURE_IMG, OPEN_CAMERA)
+                                    openImagePicker(requestCode, OPEN_CAMERA)
                                 }
                             }
 
@@ -64,7 +61,7 @@ fun Fragment.showPopupTakePicture(anchorView: View) {
                         .withErrorListener { toastError("Cấp quyền không thành công !") }
                         .onSameThread()
                         .check()
-                } else openImagePicker(REQUEST_CAPTURE_IMG, OPEN_CAMERA)
+                } else openImagePicker(requestCode, OPEN_CAMERA)
 
             }
             R.id.uploadPhoto -> {
@@ -78,7 +75,7 @@ fun Fragment.showPopupTakePicture(anchorView: View) {
                         .withListener(object : PermissionListener {
                             override fun onPermissionGranted(response: PermissionGrantedResponse?) {
                                 if (response?.permissionName == Manifest.permission.READ_EXTERNAL_STORAGE) {
-                                    openImagePicker(REQUEST_UPLOAD_IMG, OPEN_FOLDER)
+                                    openImagePicker(requestCode, OPEN_FOLDER)
                                 }
                             }
 
@@ -96,7 +93,7 @@ fun Fragment.showPopupTakePicture(anchorView: View) {
                         .withErrorListener { toastError("Cấp quyền không thành công !") }
                         .onSameThread()
                         .check()
-                } else openImagePicker(REQUEST_UPLOAD_IMG, OPEN_FOLDER)
+                } else openImagePicker(requestCode, OPEN_FOLDER)
             }
         }
         true
@@ -130,7 +127,7 @@ fun Fragment.openImagePicker(requestCode: Int, type: Int) {
 
 }
 
-fun Activity.showPopupTakePicture(view: View) {
+fun Activity.showPopupTakePicture(requestCode: Int, view: View) {
     if (isFinishing) return
     val popup = PopupMenu(this, view)
     popup.inflate(R.menu.popup_image_picker)
@@ -148,7 +145,7 @@ fun Activity.showPopupTakePicture(view: View) {
                         .withListener(object : PermissionListener {
                             override fun onPermissionGranted(response: PermissionGrantedResponse?) {
                                 if (response?.permissionName == Manifest.permission.CAMERA) {
-                                    openImagePicker(REQUEST_CAPTURE_IMG, OPEN_CAMERA)
+                                    openImagePicker(requestCode, OPEN_CAMERA)
                                 }
                             }
 
@@ -166,7 +163,7 @@ fun Activity.showPopupTakePicture(view: View) {
                         .withErrorListener { toastError("Cấp quyền không thành công !") }
                         .onSameThread()
                         .check()
-                } else openImagePicker(REQUEST_CAPTURE_IMG, OPEN_CAMERA)
+                } else openImagePicker(requestCode, OPEN_CAMERA)
             }
 
             R.id.uploadPhoto -> {
@@ -180,7 +177,7 @@ fun Activity.showPopupTakePicture(view: View) {
                         .withListener(object : PermissionListener {
                             override fun onPermissionGranted(response: PermissionGrantedResponse?) {
                                 if (response?.permissionName == Manifest.permission.READ_EXTERNAL_STORAGE) {
-                                    openImagePicker(REQUEST_UPLOAD_IMG, OPEN_FOLDER)
+                                    openImagePicker(requestCode, OPEN_FOLDER)
                                 }
                             }
 
@@ -198,7 +195,7 @@ fun Activity.showPopupTakePicture(view: View) {
                         .withErrorListener { toastError("Cấp quyền không thành công !") }
                         .onSameThread()
                         .check()
-                } else openImagePicker(REQUEST_UPLOAD_IMG, OPEN_FOLDER)
+                } else openImagePicker(requestCode, OPEN_FOLDER)
             }
         }
         true

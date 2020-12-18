@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.provider.SyncStateContract
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
@@ -21,6 +22,7 @@ import com.nvmt.android.mtlibrary.R
 import com.nvmt.android.mtlibrary.base.MTConstant
 import com.nvmt.android.mtlibrary.base.common.BaseActivity
 import com.nvmt.android.mtlibrary.extension.checkAndRequestPermission
+import com.nvmt.android.mtlibrary.extension.toast
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
@@ -44,14 +46,17 @@ class CaptureImageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_capture_image)
         outputDirectory = getOutputDirectory()
-        if (!checkAndRequestPermission(permissions, REQUEST_CODE)) return
+        if (!checkAndRequestPermission(permissions, REQUEST_CODE)) {
+            toast("Need Camera Permission")
+            return
+        }
         startCamera()
 
-        findViewById<View>(R.id.btnCaptureImg).setOnClickListener {
+        findViewById<ImageView>(R.id.btnCaptureImg).setOnClickListener {
             takePhoto()
         }
 
-        findViewById<View>(R.id.btnFlipCamera).setOnClickListener {
+        findViewById<ImageView>(R.id.btnFlipCamera).setOnClickListener {
             cameraSelector = if (CameraSelector.DEFAULT_BACK_CAMERA == cameraSelector) {
                 CameraSelector.DEFAULT_FRONT_CAMERA
             } else {

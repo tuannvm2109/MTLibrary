@@ -35,7 +35,7 @@ fun Activity.checkAndRequestPermission(listPermission: List<String>, requestCode
     for (p in listPermission) {
         if (ActivityCompat.checkSelfPermission(
                 this,
-                Manifest.permission.ACCESS_FINE_LOCATION
+                p
             ) != PackageManager.PERMISSION_GRANTED
         ) {
             listPermissionNotGranted.add(p)
