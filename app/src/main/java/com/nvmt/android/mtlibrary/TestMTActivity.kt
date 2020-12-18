@@ -3,15 +3,13 @@ package com.nvmt.android.mtlibrary
 import android.Manifest
 import android.app.Activity
 import android.content.Intent
-import android.media.Image
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.nvmt.android.mtlibrary.base.MTConstant
 import com.nvmt.android.mtlibrary.extension.checkPermissionAndHandle
-import com.nvmt.android.mtlibrary.extension.showDialogListAnchor
-import com.nvmt.android.mtlibrary.extension.showPopupTakePicture
 import com.nvmt.android.mtlibrary.extension.toast
+import com.nvmt.android.mtlibrary.testkeeprecyclerview.NotificationsFragment
 import java.io.File
 
 class TestMTActivity : AppCompatActivity() {
@@ -28,6 +26,9 @@ class TestMTActivity : AppCompatActivity() {
                 toast("123123123")
             }
         }
+
+        val newFragment = NotificationsFragment()
+        newFragment.hashCode()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:bind="http://schemas.android.com/apk/res-auto"
+    tools:keep="@layout/frag*_c,@layout/l_used_a,@layout/l_used_b*"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
