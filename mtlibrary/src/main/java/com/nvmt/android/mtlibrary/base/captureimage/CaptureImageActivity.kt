@@ -21,7 +21,7 @@ import androidx.core.content.ContextCompat
 import com.nvmt.android.mtlibrary.R
 import com.nvmt.android.mtlibrary.base.MTConstant
 import com.nvmt.android.mtlibrary.base.common.BaseActivity
-import com.nvmt.android.mtlibrary.extension.checkAndRequestPermission
+import com.nvmt.android.mtlibrary.extension.checkPermissionIsGranted
 import com.nvmt.android.mtlibrary.extension.toast
 import java.io.File
 import java.text.SimpleDateFormat
@@ -46,7 +46,7 @@ class CaptureImageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_capture_image)
         outputDirectory = getOutputDirectory()
-        if (!checkAndRequestPermission(permissions, REQUEST_CODE)) {
+        if (!checkPermissionIsGranted(permissions)) {
             toast("Need Camera Permission")
             return
         }

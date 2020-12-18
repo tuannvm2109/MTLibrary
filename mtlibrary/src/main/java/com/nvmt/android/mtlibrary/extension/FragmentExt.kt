@@ -1,5 +1,6 @@
 package com.nvmt.android.mtlibrary.extension
 
+import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -42,27 +43,16 @@ fun Fragment.hideKeyboard() {
     view?.let { activity?.hideKeyboard(it) }
 }
 
-fun Fragment.checkAndRequestPermission(listPermission: List<String>, requestCode: Int): Boolean {
-    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return true
-    val listPermissionNotGranted = arrayListOf<String>()
+fun Fragment.checkPermissionIsGranted(listPermission: List<String>): Boolean {
+    return requireActivity().checkPermissionIsGranted(listPermission)
+}
 
-    for (p in listPermission) {
-        if (ActivityCompat.checkSelfPermission(
-                requireContext(),
-                p
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            listPermissionNotGranted.add(p)
-        }
-    }
-
-    if (listPermissionNotGranted.isEmpty()) return true
-
-    requestPermissions(
-        listPermissionNotGranted.toTypedArray(),
-        requestCode
-    )
-    return false
+fun Fragment.checkPermissionAndHandle(
+    listPermission: List<String>,
+    requestCode: Int,
+    listener: (() -> Unit)?
+) {
+    requireActivity().checkPermissionAndHandle(listPermission, requestCode, listener)
 }
 
 fun Fragment.makePhoneCall(phone: String?) {

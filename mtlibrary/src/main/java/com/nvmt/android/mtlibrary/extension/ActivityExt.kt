@@ -13,10 +13,13 @@ import android.widget.ListPopupWindow
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.karumi.dexter.Dexter
+import com.karumi.dexter.DexterBuilder
+import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionDeniedResponse
 import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.karumi.dexter.listener.single.PermissionListener
 import com.nvmt.android.mtlibrary.R
 
@@ -28,7 +31,7 @@ fun Activity.hideKeyboard() {
 //private val REQUEST_CODE = 321
 //private val permissions =
 //    listOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION)
-fun Activity.checkAndRequestPermission(listPermission: List<String>, requestCode: Int): Boolean {
+fun Activity.checkPermissionIsGranted(listPermission: List<String>): Boolean {
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return true
     val listPermissionNotGranted = arrayListOf<String>()
 
@@ -42,13 +45,71 @@ fun Activity.checkAndRequestPermission(listPermission: List<String>, requestCode
         }
     }
 
-    if (listPermissionNotGranted.isEmpty()) return true
+    return listPermissionNotGranted.isEmpty()
+}
 
-    requestPermissions(
-        listPermissionNotGranted.toTypedArray(),
-        requestCode
-    )
-    return false
+fun Activity.checkPermissionAndHandle(
+    listPermission: List<String>,
+    requestCode: Int,
+    listener: (() -> Unit)?
+) {
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return
+    val listPermissionNotGranted = arrayListOf<String>()
+
+    for (p in listPermission) {
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                p
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            listPermissionNotGranted.add(p)
+        }
+    }
+
+    if (listPermissionNotGranted.isEmpty()) listener?.invoke()
+    else {
+        Dexter.withActivity(this)
+            .withPermissions(listPermissionNotGranted)
+            .withListener(object : MultiplePermissionsListener {
+                override fun onPermissionsChecked(report: MultiplePermissionsReport?) {
+                    if (report == null) {
+                        toastError("Cấp quyền không thành công !")
+                        return
+                    }
+                    // check if all permissions are granted
+                    if (report.areAllPermissionsGranted()) {
+                        listener?.invoke()
+                    }
+
+                    // check for permanent denial of any permission
+                    if (report.isAnyPermissionPermanentlyDenied) {
+                        showDialogConfirm(
+                            content = "Ứng dụng cần cấp quyền để hoạt động chức năng này," +
+                                    "Cấp lại quyền trong phần cài đặt ?",
+                            positiveListener = {
+                                startActivity(
+                                    Intent(
+                                        android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                                        Uri.parse("package:$packageName")
+                                    )
+                                )
+                            }
+                        )
+                    }
+                }
+
+                override fun onPermissionRationaleShouldBeShown(
+                    permissions: MutableList<PermissionRequest>?,
+                    token: PermissionToken?
+                ) {
+                    token?.continuePermissionRequest()
+                }
+
+            })
+            .withErrorListener { toastError("Cấp quyền không thành công !") }
+            .onSameThread()
+            .check()
+    }
 }
 
 fun Activity.makePhoneCall(phone: String?) {
