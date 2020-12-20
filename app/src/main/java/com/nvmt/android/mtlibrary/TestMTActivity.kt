@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.nvmt.android.mtlibrary.base.MTConstant
 import com.nvmt.android.mtlibrary.extension.checkPermissionAndHandle
 import com.nvmt.android.mtlibrary.extension.toast
-import com.nvmt.android.mtlibrary.testkeeprecyclerview.NotificationsFragment
 import java.io.File
 
 class TestMTActivity : AppCompatActivity() {
@@ -26,9 +25,6 @@ class TestMTActivity : AppCompatActivity() {
                 toast("123123123")
             }
         }
-
-        val newFragment = NotificationsFragment()
-        newFragment.hashCode()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

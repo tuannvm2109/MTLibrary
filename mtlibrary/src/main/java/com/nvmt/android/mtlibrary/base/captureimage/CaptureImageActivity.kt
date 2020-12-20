@@ -20,7 +20,6 @@ import androidx.camera.view.PreviewView
 import androidx.core.content.ContextCompat
 import com.nvmt.android.mtlibrary.R
 import com.nvmt.android.mtlibrary.base.MTConstant
-import com.nvmt.android.mtlibrary.base.common.BaseActivity
 import com.nvmt.android.mtlibrary.extension.checkPermissionIsGranted
 import com.nvmt.android.mtlibrary.extension.toast
 import java.io.File
