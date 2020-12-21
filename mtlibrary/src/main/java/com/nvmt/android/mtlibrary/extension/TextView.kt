@@ -8,6 +8,10 @@ import com.nvmt.android.mtlibrary.util.html.URLImageParser
 
 @BindingAdapter("text_html")
 fun TextView.setTextHtml(source: String?) {
+    if (source.isNullOrBlank()) {
+        text = ""
+        return
+    }
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
         text = Html.fromHtml(source, Html.FROM_HTML_MODE_COMPACT)
     } else {
