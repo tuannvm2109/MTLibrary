@@ -37,6 +37,8 @@
     <string name="txt_next">Tiếp theo</string>
     <string name="txt_send">Gửi</string>
     <string name="txt_update">Cập nhật</string>
+    <string name="txt_apply">Áp dụng</string>
+    <string name="txt_rate">Đánh giá</string>
     <string name="txt_cancel">Hủy</string>
     <string name="txt_back">Trở lại</string>
     <string name="txt_login">Đăng nhập</string>
