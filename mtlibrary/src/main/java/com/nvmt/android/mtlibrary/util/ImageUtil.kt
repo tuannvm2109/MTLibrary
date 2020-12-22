@@ -60,16 +60,16 @@ object ImageUtil {
     }
 
 
-    fun convertImageToPartType(imageFile: File): MultipartBody.Part? {
+    fun convertImageToPartType(name: String, imageFile: File): MultipartBody.Part? {
         val fileReqBody: RequestBody =
             RequestBody.create(MediaType.parse("image/*"), File(imageFile.path))
-        return MultipartBody.Part.createFormData("photo", imageFile.name, fileReqBody)
+        return MultipartBody.Part.createFormData(name, imageFile.name, fileReqBody)
     }
 
-    fun convertImageToPartType(imageFile: Image): MultipartBody.Part? {
+    fun convertImageToPartType(name: String, imageFile: Image): MultipartBody.Part? {
         val fileReqBody: RequestBody =
             RequestBody.create(MediaType.parse("image/*"), File(imageFile.path))
-        return MultipartBody.Part.createFormData("photo", imageFile.name, fileReqBody)
+        return MultipartBody.Part.createFormData(name, imageFile.name, fileReqBody)
     }
 
 }

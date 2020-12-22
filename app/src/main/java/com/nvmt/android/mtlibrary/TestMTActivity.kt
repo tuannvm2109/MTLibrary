@@ -5,15 +5,15 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.nvmt.android.mtlibrary.base.MTConstant
 import com.nvmt.android.mtlibrary.base.ratestar.RateStarView
-import com.nvmt.android.mtlibrary.extension.checkPermissionAndHandle
+import com.nvmt.android.mtlibrary.extension.setOnSearchListener
 import com.nvmt.android.mtlibrary.extension.toast
-import com.nvmt.android.mtlibrary.util.ImageUtil
 import java.io.File
 
 class TestMTActivity : AppCompatActivity() {
@@ -26,5 +26,9 @@ class TestMTActivity : AppCompatActivity() {
         }
 
         findViewById<RateStarView>(R.id.img1).currentStar = 2
+
+        findViewById<EditText>(R.id.img2).setOnSearchListener {
+            toast("ehrgerjkg")
+        }
     }
 }
