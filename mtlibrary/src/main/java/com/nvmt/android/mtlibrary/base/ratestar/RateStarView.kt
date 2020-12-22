@@ -40,7 +40,10 @@ class RateStarView @JvmOverloads constructor(
     private fun updateView(view: View) {
         val adapter = RateStarAdapter(
             context, currentStar ?: 0
-        )
+        ) { star ->
+            currentStar = star
+        }
+
         adapter.setHasStableIds(true)
         adapter.isClickAble = true
 

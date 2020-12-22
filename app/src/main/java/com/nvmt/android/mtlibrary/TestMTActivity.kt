@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +22,7 @@ class TestMTActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViewById<TextView>(R.id.tv).setOnClickListener {
+            Log.d("asdf", findViewById<RateStarView>(R.id.img1).currentStar.toString())
         }
 
         findViewById<RateStarView>(R.id.img1).currentStar = 2

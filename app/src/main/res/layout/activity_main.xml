@@ -19,7 +19,7 @@
 
     <com.nvmt.android.mtlibrary.base.ratestar.RateStarView
         android:id="@+id/img1"
-        app:isRateAble="false"
+        app:isRateAble="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

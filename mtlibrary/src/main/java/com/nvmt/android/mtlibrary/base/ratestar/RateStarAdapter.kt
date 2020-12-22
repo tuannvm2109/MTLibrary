@@ -2,6 +2,7 @@ package com.nvmt.android.mtlibrary.base.ratestar
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.OrientationEventListener
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -12,6 +13,7 @@ import com.nvmt.android.mtlibrary.extension.setGlideSrc
 class RateStarAdapter(
     val context: Context,
     var star: Int,
+    val listener: (star : Int) -> Unit
 ) : RecyclerView.Adapter<RateStarAdapter.ViewHolder>() {
     var isClickAble: Boolean? = false
 
@@ -22,6 +24,7 @@ class RateStarAdapter(
         view.setOnClickListener {
             if (isClickAble == false) return@setOnClickListener
             star = holder.layoutPosition + 1
+            listener.invoke(star)
             notifyDataSetChanged()
         }
         return holder
