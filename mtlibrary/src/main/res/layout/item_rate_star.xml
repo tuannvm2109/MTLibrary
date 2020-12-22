@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/_20sdp"
+    android:layout_height="@dimen/_20sdp"
+    android:orientation="vertical"
+    tools:layout_height="@dimen/_150sdp"
+    tools:layout_width="@dimen/_150sdp">
+
+    <ImageView
+        android:id="@+id/imgStar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_star_rate" />
+
+</FrameLayout>

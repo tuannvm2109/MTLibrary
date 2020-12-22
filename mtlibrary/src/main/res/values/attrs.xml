@@ -18,4 +18,9 @@
         <attr name="mainImageCorner" format="dimension" />
 
     </declare-styleable>
+
+    <declare-styleable name="RateStarView">
+        <attr name="isRateAble" format="boolean" />
+
+    </declare-styleable>
 </resources>
