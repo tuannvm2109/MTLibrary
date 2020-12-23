@@ -37,11 +37,11 @@
 
     <com.nvmt.android.mtlibrary.base.iconbadge.IconBadgeView
         android:id="@+id/tesst3"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:imeOptions="actionSearch"
         app:icon_src="@drawable/ic_notification"
-        app:icon_tint="@color/white"
+        app:icon_tint="@color/blue_600"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 

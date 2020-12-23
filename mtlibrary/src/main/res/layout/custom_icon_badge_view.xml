@@ -16,14 +16,14 @@
 
     <TextView
         android:id="@+id/tvBadge"
-        android:minWidth="@dimen/_17sdp"
+        android:minWidth="@dimen/_16sdp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:singleLine="true"
         android:layout_gravity="top|end"
         android:background="@drawable/bgr_badge"
         android:gravity="center"
-        android:paddingHorizontal="@dimen/_3sdp"
+        android:paddingHorizontal="@dimen/_1sdp"
         android:paddingVertical="@dimen/_1sdp"
         android:textColor="@color/white"
         tools:text="12" />
