@@ -32,15 +32,14 @@ class IconBadgeView @JvmOverloads constructor(
 
         val ta = context.obtainStyledAttributes(attrs, R.styleable.IconBadgeView)
         try {
-            val color = ta.getColor(R.styleable.IconBadgeView_icon_tint, -1)
-            if (color != -1) {
+            val color = ta.getColor(R.styleable.IconBadgeView_icon_tint, -210996)
+            if (color != -210996) {
                 mColorFilter = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                     BlendModeColorFilter(color, BlendMode.SRC_ATOP)
                 } else {
                     PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
                 }
             }
-
             mDrawable = ta.getDrawable(R.styleable.IconBadgeView_icon_src)
 
         } finally {
