@@ -31,6 +31,21 @@ fun ImageView.setGlidePath(imagePath: String) {
         .into(this)
 }
 
+@BindingAdapter("glideByteArray")
+fun ImageView.setGlideByteArray(byteArray: ByteArray?) {
+    val circularProgressDrawable = CircularProgressDrawable(context)
+    circularProgressDrawable.strokeWidth = 5f
+    circularProgressDrawable.centerRadius = 30f
+    circularProgressDrawable.start()
+
+    Glide.with(context)
+        .asBitmap()
+        .load(byteArray)
+        .placeholder(circularProgressDrawable)
+        .into(this);
+}
+
+
 @BindingAdapter("loadImageUrlNoAnimation")
 fun ImageView.loadImageUrlNoAnimation(image: String?) {
     Glide.with(context)

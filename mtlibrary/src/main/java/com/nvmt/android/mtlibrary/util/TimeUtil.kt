@@ -120,7 +120,7 @@ object TimeUtil {
             mParsedDate = mInputDateFormat.parse(inputDate)
             mOutputDateString = mOutputDateFormat.format(mParsedDate)
             mOutputDateString
-        } catch (e: ParseException) {
+        } catch (e: Exception) {
             inputDate
         }
     }

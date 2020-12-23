@@ -100,6 +100,7 @@
     <string name="txt_update_phone">Cập nhật số điện thoại</string>
     <string name="tx_change_password">Đổi mật khẩu</string>
     <string name="tx_enter_password">Hãy nhập mật khẩu</string>
+    <string name="txt_enter_old_password">Hãy nhập mật khẩu cũ</string>
     <string name="txt_enter_re_password">Hãy nhập lại mật khẩu</string>
     <string name="txt_password_not_match">Mật khẩu nhập lại không đúng</string>
     <string name="txt_province">Tỉnh/thành phố</string>
