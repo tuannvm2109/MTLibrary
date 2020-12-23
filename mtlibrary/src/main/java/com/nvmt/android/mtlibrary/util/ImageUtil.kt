@@ -60,19 +60,19 @@ object ImageUtil {
     }
 
 
-    fun convertImageToPartType(name: String, imageFile: File): MultipartBody.Part? {
+    fun convertImageToPartType(name: String, imageFile: File): MultipartBody.Part {
         val fileReqBody: RequestBody =
             RequestBody.create(MediaType.parse("image/*"), File(imageFile.path))
         return MultipartBody.Part.createFormData(name, imageFile.name, fileReqBody)
     }
 
-    fun convertImageToPartType(name: String, imageFile: Image): MultipartBody.Part? {
+    fun convertImageToPartType(name: String, imageFile: Image): MultipartBody.Part {
         val fileReqBody: RequestBody =
             RequestBody.create(MediaType.parse("image/*"), File(imageFile.path))
         return MultipartBody.Part.createFormData(name, imageFile.name, fileReqBody)
     }
 
-    fun convertByteArrayToPartType(name: String, byteArray: ByteArray): MultipartBody.Part? {
+    fun convertByteArrayToPartType(name: String, byteArray: ByteArray): MultipartBody.Part {
         val fileReqBody: RequestBody =
             RequestBody.create(MediaType.parse("image/*"), byteArray)
         return MultipartBody.Part.createFormData(name, byteArray.hashCode().toString(), fileReqBody)

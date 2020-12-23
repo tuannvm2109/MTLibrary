@@ -23,4 +23,9 @@
         <attr name="isRateAble" format="boolean" />
 
     </declare-styleable>
+
+    <declare-styleable name="IconBadgeView">
+        <attr name="icon_tint" format="color" />
+        <attr name="icon_src" format="reference" />
+    </declare-styleable>
 </resources>

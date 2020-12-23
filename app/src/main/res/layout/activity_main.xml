@@ -35,4 +35,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
+    <com.nvmt.android.mtlibrary.base.iconbadge.IconBadgeView
+        android:id="@+id/tesst3"
+        android:layout_width="50dp"
+        app:icon_src="@drawable/ic_done"
+        app:icon_tint="@color/blue_600"
+        android:imeOptions="actionSearch"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
 </LinearLayout>

@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.nvmt.android.mtlibrary.base.MTConstant
+import com.nvmt.android.mtlibrary.base.iconbadge.IconBadgeView
 import com.nvmt.android.mtlibrary.base.ratestar.RateStarView
 import com.nvmt.android.mtlibrary.extension.setOnSearchListener
 import com.nvmt.android.mtlibrary.extension.showPopupTakePicture
@@ -28,8 +29,6 @@ class TestMTActivity : AppCompatActivity() {
 
         findViewById<RateStarView>(R.id.img1).currentStar = 2
 
-        findViewById<EditText>(R.id.img2).setOnSearchListener {
-            toast("ehrgerjkg")
-        }
+        findViewById<IconBadgeView>(R.id.tesst3).badgeNumb = 0
     }
 }
