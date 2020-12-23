@@ -1,12 +1,19 @@
 package com.nvmt.android.mtlibrary.base.captureimage
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.BlendMode
+import android.graphics.BlendModeColorFilter
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.SyncStateContract
 import android.util.Log
+import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
@@ -18,6 +25,7 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
 import com.nvmt.android.mtlibrary.R
 import com.nvmt.android.mtlibrary.base.MTConstant
 import com.nvmt.android.mtlibrary.extension.checkPermissionIsGranted
@@ -37,6 +45,7 @@ class CaptureImageActivity : AppCompatActivity() {
     private var imageCapture: ImageCapture? = null
 
     var cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+    var photoFile: File? = null
 
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
@@ -73,15 +82,16 @@ class CaptureImageActivity : AppCompatActivity() {
         val imageCapture = imageCapture ?: return
 
         // Create time-stamped output file to hold the image
-        val photoFile = File(
+        photoFile = File(
             outputDirectory,
             SimpleDateFormat(
-                FILENAME_FORMAT, Locale.getDefault()
+                FILENAME_FORMAT,
+                Locale.getDefault()
             ).format(System.currentTimeMillis()) + ".jpg"
         )
 
         // Create output options object which contains file + metadata
-        val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
+        val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile!!).build()
 
         // Set up image capture listener, which is triggered after photo has
         // been taken
@@ -94,19 +104,34 @@ class CaptureImageActivity : AppCompatActivity() {
                 }
 
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
-                    val savedUri = Uri.fromFile(photoFile)
-                    val intent = Intent()
-                    intent.putExtra(MTConstant.KEY_DATA, photoFile)
-                    setResult(RESULT_OK, intent)
-                    finish()
+//                    val savedUri = Uri.fromFile(photoFile)
+//                    val intent = Intent()
+//                    intent.putExtra(MTConstant.KEY_DATA, photoFile)
+//                    setResult(RESULT_OK, intent)
+//                    finish()
 
-//                    val msg = "Photo capture succeeded: $savedUri"
-//                    Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
-//                    Log.d(TAG, msg)
+                    val frag = CaptureImagePreviewFragment()
+                    val bundle = bundleOf("path_image" to photoFile?.path)
+                    frag.arguments = bundle
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.layout_cover, frag)
+                        .addToBackStack(CaptureImagePreviewFragment::class.java.simpleName)
+                        .commit()
                 }
             })
     }
 
+
+    fun doneResult() {
+        val intent = Intent()
+        intent.putExtra(MTConstant.KEY_DATA, photoFile)
+        setResult(RESULT_OK, intent)
+        finish()
+    }
+
+    fun discardResult() {
+        photoFile = null
+    }
 
     private fun startCamera() {
         bindCameraUseCases(cameraSelector)

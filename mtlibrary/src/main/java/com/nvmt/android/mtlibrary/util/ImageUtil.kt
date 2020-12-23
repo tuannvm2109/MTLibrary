@@ -72,4 +72,9 @@ object ImageUtil {
         return MultipartBody.Part.createFormData(name, imageFile.name, fileReqBody)
     }
 
+    fun convertByteArrayToPartType(name: String, byteArray: ByteArray): MultipartBody.Part? {
+        val fileReqBody: RequestBody =
+            RequestBody.create(MediaType.parse("image/*"), byteArray)
+        return MultipartBody.Part.createFormData(name, byteArray.hashCode().toString(), fileReqBody)
+    }
 }

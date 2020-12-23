@@ -16,7 +16,6 @@ import com.nvmt.android.mtlibrary.R
 import java.io.File
 
 
-
 @BindingAdapter("glideSrc")
 fun ImageView.setGlideSrc(@DrawableRes src: Int?) {
     Glide.with(context)
@@ -25,7 +24,8 @@ fun ImageView.setGlideSrc(@DrawableRes src: Int?) {
 }
 
 @BindingAdapter("glidePath")
-fun ImageView.setGlidePath(imagePath: String) {
+fun ImageView.setGlidePath(imagePath: String?) {
+    if (imagePath.isNullOrBlank()) return
     Glide.with(context)
         .load(File(imagePath))
         .into(this)

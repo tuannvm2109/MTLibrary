@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.nvmt.android.mtlibrary.base.MTConstant
 import com.nvmt.android.mtlibrary.base.ratestar.RateStarView
 import com.nvmt.android.mtlibrary.extension.setOnSearchListener
+import com.nvmt.android.mtlibrary.extension.showPopupTakePicture
 import com.nvmt.android.mtlibrary.extension.toast
 import java.io.File
 
@@ -22,7 +23,7 @@ class TestMTActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViewById<TextView>(R.id.tv).setOnClickListener {
-            Log.d("asdf", findViewById<RateStarView>(R.id.img1).currentStar.toString())
+            showPopupTakePicture(1123, findViewById<TextView>(R.id.tv))
         }
 
         findViewById<RateStarView>(R.id.img1).currentStar = 2
