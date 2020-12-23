@@ -29,6 +29,6 @@ class TestMTActivity : AppCompatActivity() {
 
         findViewById<RateStarView>(R.id.img1).currentStar = 2
 
-        findViewById<IconBadgeView>(R.id.tesst3).badgeNumb = 0
+        findViewById<IconBadgeView>(R.id.tesst3).badgeNumb = 2
     }
 }
