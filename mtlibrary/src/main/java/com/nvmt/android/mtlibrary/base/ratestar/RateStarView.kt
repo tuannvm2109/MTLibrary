@@ -46,9 +46,11 @@ class RateStarView @JvmOverloads constructor(
 
         adapter.setHasStableIds(true)
         adapter.isClickAble = true
+        adapter.setHasStableIds(true)
 
         view.findViewById<RecyclerView>(R.id.rvRate).apply {
             itemAnimator = null
+
             layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
             this.adapter = adapter
             if (isRateAble != true) suppressLayout(true)

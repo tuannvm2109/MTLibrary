@@ -67,7 +67,7 @@ object TimeUtil {
             val dateTime = Date(timeStamp!!)
             sdf.format(dateTime)
         } catch (e: Exception) {
-            timeStamp.toString()
+            null
         }
     }
 
@@ -121,18 +121,18 @@ object TimeUtil {
             mOutputDateString = mOutputDateFormat.format(mParsedDate)
             mOutputDateString
         } catch (e: Exception) {
-            inputDate
+            null
         }
     }
 
-    fun getDateStringFromCalendar(format: String, cal: Calendar?): String {
-        if (cal == null) return format
+    fun getDateStringFromCalendar(format: String, cal: Calendar?): String? {
+        if (cal == null) return null
         return try {
             val sdf = SimpleDateFormat(format, Locale.getDefault())
             sdf.timeZone = TimeZone.getTimeZone("UTC")
             sdf.format(cal.time)
         } catch (e: Exception) {
-            format
+            null
         }
     }
 
