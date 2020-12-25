@@ -13,6 +13,8 @@
     <string name="str_test_4">Định dạng văn bản trên Word đó là chúng ta sẽ thay đổi các mục gồm căn lề, vị trí của đoạn văn so với đoạn trước và sau, khoảng cách lề của dòng đầu tiên, khoảng cách đến đoạn văn trên hoặc dưới, khoảng cách giữa các dòng trong đoạn văn. Việc định dạng đoạn văn bản trong Word </string>
     <string name="str_test_5">Định dạng văn bản trên Word đó là chúng ta sẽ thay đổi các mục gồm căn lề, vị trí của đoạn văn so với đoạn trước và sau, khoảng cách lề của dòng đầu tiên, khoảng cách đến đoạn văn trên hoặc dưới, khoảng cách giữa các dòng trong đoạn văn. Việc định dạng đoạn văn bản trong Word cũng tạo được sự khác biệt cho nội dung, khi bạn muốn nhấn mạnh vào nội dung đó. Bài viết dưới đây sẽ hướng dẫn bạn đọc cách định dạng đoạn văn bản Word</string>
 
+    <string name="message_error">Đã có lỗi xảy ra!</string>
+    <string name="message_error_toke">Đã có lỗi xảy ra! \n Không lấy được dữ liệu Token</string>
     <string name="message_expire_token">Phiên làm việc của bạn đã hết hạn.\nVui lòng đăng nhập lại!</string>
     <string name="message_too_many_request">Thực hiện request quá nhiều tới server !!</string>
     <string name="message_unknown_error">Oops! Chúng tôi không thể xử lý yêu cầu của bạn ngay lúc này!\n\nVui lòng thử sau ít phút nhé ^^</string>
