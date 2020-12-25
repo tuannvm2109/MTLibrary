@@ -10,6 +10,9 @@ object MTConstant {
     const val DEFAULT_CURRENCY_SYMBOL = "VNĐ"
     const val DEVICE_TYPE = "android"
 
+    const val LANGUAGE_EN_CODE = "en"
+    const val LANGUAGE_VI_CODE = "vi_VN"
+
     const val BROADCAST_UPDATE_BADGE = "BROADCAST_UPDATE_BADGE"
 
     const val KEY_DATA = "KEY_DATA"
