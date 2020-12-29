@@ -49,10 +49,9 @@ fun Fragment.checkPermissionIsGranted(listPermission: List<String>): Boolean {
 
 fun Fragment.checkPermissionAndHandle(
     listPermission: List<String>,
-    requestCode: Int,
     listener: (() -> Unit)?
 ) {
-    requireActivity().checkPermissionAndHandle(listPermission, requestCode, listener)
+    requireActivity().checkPermissionAndHandle(listPermission, listener)
 }
 
 fun Fragment.makePhoneCall(phone: String?) {

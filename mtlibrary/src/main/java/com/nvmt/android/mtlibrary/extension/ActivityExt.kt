@@ -50,10 +50,12 @@ fun Activity.checkPermissionIsGranted(listPermission: List<String>): Boolean {
 
 fun Activity.checkPermissionAndHandle(
     listPermission: List<String>,
-    requestCode: Int,
     listener: (() -> Unit)?
 ) {
-    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+        listener?.invoke()
+        return
+    }
     val listPermissionNotGranted = arrayListOf<String>()
 
     for (p in listPermission) {
