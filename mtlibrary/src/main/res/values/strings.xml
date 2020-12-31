@@ -82,6 +82,7 @@
     <string name="txt_register">Đăng ký</string>
     <string name="txt_logout">Đăng xuất</string>
     <string name="txt_success">Thành công</string>
+    <string name="txt_login_need">Bạn cần đăng nhập để sử dụng chức năng này</string>
     <string name="txt_login_phone">Số điện thoại đăng nhập</string>
     <string name="txt_phone_number">Số điện thoại</string>
     <string name="txt_full_name_1">Họ tên</string>

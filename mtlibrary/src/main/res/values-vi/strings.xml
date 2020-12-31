@@ -88,6 +88,7 @@
     <string name="txt_enter_phone">Nhập số điện thoại</string>
     <string name="txt_update_phone">Cập nhật số điện thoại</string>
     <string name="tx_change_password">Đổi mật khẩu</string>
+    <string name="txt_login_need">Bạn cần đăng nhập để sử dụng chức năng này</string>
     <string name="tx_enter_password">Hãy nhập mật khẩu</string>
     <string name="txt_enter_old_password">Hãy nhập mật khẩu cũ</string>
     <string name="txt_enter_re_password">Hãy nhập lại mật khẩu</string>
