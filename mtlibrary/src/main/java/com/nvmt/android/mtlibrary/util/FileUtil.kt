@@ -8,12 +8,12 @@ import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
+import android.provider.OpenableColumns
 import androidx.core.content.FileProvider
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 import java.io.OutputStream
-
 
 
 object FileUtil {
@@ -118,4 +118,29 @@ object FileUtil {
             }
         }
     }
+
+    fun getFileName(context: Context, uri: Uri): String {
+        try {
+            var result: String? = null
+            if (uri.scheme == "content") {
+                val cursor =
+                    context.contentResolver.query(uri, null, null, null, null)
+                try {
+                    if (cursor != null && cursor.moveToFirst()) {
+                        result =
+                            cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME))
+                    }
+                } finally {
+                    cursor?.close()
+                }
+            }
+            if (result == null) {
+                result = File(uri.path).name ?: "Unknown File Name"
+            }
+            return result
+        } catch (e: Exception) {
+            return "Unknown File Name"
+        }
+    }
+
 }
