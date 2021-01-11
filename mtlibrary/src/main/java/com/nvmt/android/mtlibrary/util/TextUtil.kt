@@ -59,17 +59,8 @@ object TextUtil {
         return str
     }
 
-    fun switchHidePassword(context: Context, img: ImageView, edt: EditText) {
-        if (edt.transformationMethod == null) {
-            img.setImageDrawable(
-                ContextCompat.getDrawable(context, R.drawable.ic_hide_password)
-            )
-            edt.transformationMethod = PasswordTransformationMethod()
-        } else {
-            img.setImageDrawable(
-                ContextCompat.getDrawable(context, R.drawable.ic_show_password)
-            )
-            edt.transformationMethod = null
-        }
+    fun removeSpecialCharacterFromString(str: String): String {
+        val re = Regex("[^A-Za-z0-9 ]")
+        return re.replace(str, "")
     }
 }

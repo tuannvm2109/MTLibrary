@@ -47,7 +47,7 @@ object TimeUtil {
      */
     fun getCurrentTime(dateFormat: String): String? {
         val sdf = SimpleDateFormat(dateFormat, Locale.getDefault())
-        sdf.timeZone = TimeZone.getTimeZone("UTC")
+//        sdf.timeZone = TimeZone.getTimeZone("UTC")
         val today = Calendar.getInstance().time
         return sdf.format(today)
     }
@@ -63,7 +63,7 @@ object TimeUtil {
     ): String? {
         return try {
             val sdf = SimpleDateFormat(dateFormat, Locale.getDefault())
-            sdf.timeZone = TimeZone.getTimeZone("UTC")
+//            sdf.timeZone = TimeZone.getTimeZone("UTC")
             val dateTime = Date(timeStamp!!)
             sdf.format(dateTime)
         } catch (e: Exception) {
@@ -86,7 +86,7 @@ object TimeUtil {
     ): Long {
         return try {
             val sdf = SimpleDateFormat(dateFormat, Locale.getDefault())
-            sdf.timeZone = TimeZone.getTimeZone("UTC")
+//            sdf.timeZone = TimeZone.getTimeZone("UTC")
             val date = sdf.parse(dateString)
             date.time
         } catch (e: Exception) {
@@ -113,10 +113,10 @@ object TimeUtil {
             val mOutputDateString: String
             val mInputDateFormat =
                 SimpleDateFormat(inputDateFormat, Locale.getDefault())
-            mInputDateFormat.timeZone = TimeZone.getTimeZone("UTC")
+//            mInputDateFormat.timeZone = TimeZone.getTimeZone("UTC")
             val mOutputDateFormat =
                 SimpleDateFormat(outputDateFormat, Locale.getDefault())
-            mOutputDateFormat.timeZone = TimeZone.getTimeZone("UTC")
+//            mOutputDateFormat.timeZone = TimeZone.getTimeZone("UTC")
             mParsedDate = mInputDateFormat.parse(inputDate)
             mOutputDateString = mOutputDateFormat.format(mParsedDate)
             mOutputDateString
@@ -139,7 +139,7 @@ object TimeUtil {
     fun getCalendarFromDateString(format: String, str: String?): Calendar? {
         return try {
             val sdf = SimpleDateFormat(format, Locale.getDefault())
-            sdf.timeZone = TimeZone.getTimeZone("UTC")
+//            sdf.timeZone = TimeZone.getTimeZone("UTC")
             val date = sdf.parse(str)
             val cal = Calendar.getInstance()
             cal.time = date
