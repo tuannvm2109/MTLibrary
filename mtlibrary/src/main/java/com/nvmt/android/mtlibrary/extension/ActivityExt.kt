@@ -197,6 +197,9 @@ fun Activity.showDialogListAnchor(
     hideKeyboard()
     val listPopupWindow =
         ListPopupWindow(this)
+    if (data.size >= 5) {
+        listPopupWindow.height = 500
+    } else listPopupWindow.height = ListPopupWindow.WRAP_CONTENT
     listPopupWindow.width = anchorView.width
     listPopupWindow.anchorView = anchorView
     val arrayAdapterStatus = ArrayAdapter<String?>(

@@ -26,6 +26,7 @@
     <string name="txt_ok">Agree</string>
     <string name="txt_next">Next</string>
     <string name="txt_send">Send</string>
+    <string name="txt_delete">Delete</string>
     <string name="txt_update">Update</string>
     <string name="txt_search_all">Find all</string>
     <string name="txt_apply">Apply</string>
