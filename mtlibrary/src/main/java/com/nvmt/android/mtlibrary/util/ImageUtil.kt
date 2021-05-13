@@ -1,10 +1,11 @@
 package com.nvmt.android.mtlibrary.util
 
-import android.R
 import android.graphics.Bitmap
 import android.graphics.Bitmap.CompressFormat
+import android.graphics.BitmapFactory
 import android.graphics.Color
-import android.widget.ImageView
+import android.graphics.Matrix
+import android.media.ExifInterface
 import com.esafirm.imagepicker.model.Image
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
@@ -19,14 +20,47 @@ import java.io.File
 
 
 object ImageUtil {
+    fun getBitmapFromPath(path: String?): Bitmap? {
+        if (path == null) return null
+        val bitmap = BitmapFactory.decodeFile(path)
+        return modifyOrientation(bitmap, path)
+    }
+
     fun getBytesFromBitmap(bitmap: Bitmap): ByteArray? {
-        try {
+        return try {
             val stream = ByteArrayOutputStream()
             bitmap.compress(CompressFormat.JPEG, 70, stream)
-            return stream.toByteArray()
+            stream.toByteArray()
         } catch (ex: Exception) {
-            return null
+            null
         }
+    }
+
+    private fun modifyOrientation(bitmap: Bitmap, path: String?): Bitmap? {
+        if (path == null) return bitmap
+        val ei = ExifInterface(path)
+        val orientation: Int =
+            ei.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)
+        return when (orientation) {
+            ExifInterface.ORIENTATION_ROTATE_90 -> rotate(bitmap, 90f)
+            ExifInterface.ORIENTATION_ROTATE_180 -> rotate(bitmap, 180f)
+            ExifInterface.ORIENTATION_ROTATE_270 -> rotate(bitmap, 270f)
+            ExifInterface.ORIENTATION_FLIP_HORIZONTAL -> flip(bitmap, true, false)
+            ExifInterface.ORIENTATION_FLIP_VERTICAL -> flip(bitmap, false, true)
+            else -> bitmap
+        }
+    }
+
+    private fun rotate(bitmap: Bitmap, degrees: Float): Bitmap? {
+        val matrix = Matrix()
+        matrix.postRotate(degrees)
+        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
+    }
+
+    private fun flip(bitmap: Bitmap, horizontal: Boolean, vertical: Boolean): Bitmap? {
+        val matrix = Matrix()
+        matrix.preScale(if (horizontal) -1f else 1f, if (vertical) -1f else 1f)
+        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
     }
 
     fun renderBarcodeImg(text: String, barcodeFormat: BarcodeFormat): Bitmap? {

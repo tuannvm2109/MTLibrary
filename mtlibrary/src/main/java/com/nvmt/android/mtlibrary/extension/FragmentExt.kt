@@ -1,17 +1,12 @@
 package com.nvmt.android.mtlibrary.extension
 
-import android.app.Activity
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListPopupWindow
-import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.nvmt.android.mtlibrary.R
 
 fun Fragment.toast(msg: String) {
@@ -30,13 +25,6 @@ fun Fragment.toastError(msg: String) {
     } catch (ex: Exception) {
 
     }
-}
-
-fun Fragment.getNavigationResult(key: String = "result") =
-    findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>(key)
-
-fun Fragment.setNavigationResult(result: String, key: String = "result") {
-    findNavController().previousBackStackEntry?.savedStateHandle?.set(key, result)
 }
 
 fun Fragment.hideKeyboard() {

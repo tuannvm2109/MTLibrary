@@ -1,18 +1,11 @@
 <resources>
 
-    <style name="SplashTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowActionBar">false</item>
+    <style name="MTSplashTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowFullscreen">true</item>
-        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+<!--        <item name="android:background">@drawable/background_splash</item>-->
     </style>
-
-<!--    <style name="NoActionBarFullScreen">-->
-<!--        <item name="windowActionBar">false</item>-->
-<!--        <item name="windowNoTitle">true</item>-->
-<!--        <item name="android:windowDrawsSystemBarBackgrounds">false</item>-->
-<!--        <item name="android:windowTranslucentStatus">true</item>-->
-<!--    </style>-->
 
     <style name="TextAppearance.BottomNavigationView" parent="@style/TextAppearance.AppCompat.Caption">
         <item name="android:textSize">@dimen/_9sdp</item>

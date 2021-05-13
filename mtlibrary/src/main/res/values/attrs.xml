@@ -28,4 +28,9 @@
         <attr name="icon_tint" format="color" />
         <attr name="icon_src" format="reference" />
     </declare-styleable>
+
+
+    <declare-styleable name="MaxHeightScrollView">
+        <attr name="maxHeight" format="dimension" />
+    </declare-styleable>
 </resources>

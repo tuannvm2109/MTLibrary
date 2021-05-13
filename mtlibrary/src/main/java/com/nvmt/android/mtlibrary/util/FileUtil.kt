@@ -9,15 +9,15 @@ import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
 import android.provider.OpenableColumns
+import android.util.Log
 import androidx.core.content.FileProvider
-import java.io.File
-import java.io.FileOutputStream
-import java.io.IOException
-import java.io.OutputStream
+import okhttp3.ResponseBody
+import java.io.*
 
 
 object FileUtil {
-    fun saveImage(bitmap: Bitmap?, context: Context?): Uri? {
+    //Lưu vào bộ nhớ ngoài (Các app khác như gallery có thể thấy, khi app uninstall thì k bị xoá)
+    fun saveImageExternalDirectory(bitmap: Bitmap?, context: Context?): Uri? {
         if (bitmap == null || context == null) return null
         val applicationInfo = context.applicationInfo
         val stringId = applicationInfo.labelRes
@@ -41,13 +41,11 @@ object FileUtil {
             }
             return uri
         } else {
-            val directory =
-                File(
-                    Environment.getExternalStorageDirectory()
-                        .toString() + File.separator + appName
-                )
+            val directory = File(
+                Environment.getExternalStorageDirectory()
+                    .toString() + File.separator + appName
+            )
             // getExternalStorageDirectory is deprecated in API 29
-
 
             val fileName = System.currentTimeMillis().toString() + ".png"
             val file = File(directory, fileName)
@@ -67,7 +65,10 @@ object FileUtil {
         }
     }
 
-    fun saveImageInternal(bitmap: Bitmap?, context: Context?): Uri? {
+    //Lưu vào bộ nhớ ngoài những vẫn nội bộ của app
+    // (Người dùng và app khách không thể xem dc. Khi app uninstall thì sẽ bị xoá luôn)
+    // Return Uri để share cho app khác có thể xem được
+    fun saveImageExternalDir(bitmap: Bitmap?, context: Context?): Uri? {
         if (bitmap == null || context == null) return null
         val cw = ContextWrapper(context)
         // path to /data/data/yourapp/app_data/imageDir
@@ -117,6 +118,36 @@ object FileUtil {
                 e.printStackTrace()
             }
         }
+    }
+
+    fun saveFile(
+        input: InputStream?,
+        path: String,
+        filename: String
+    ): String {
+        if (input == null)
+            return ""
+        try {
+            val file = File(path)
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            val fos = FileOutputStream(path + File.separator + filename)
+            fos.use { output ->
+                val buffer = ByteArray(4 * 1024) // or other buffer size
+                var read: Int
+                while (input.read(buffer).also { read = it } != -1) {
+                    output.write(buffer, 0, read)
+                }
+                output.flush()
+            }
+            return path
+        } catch (e: Exception) {
+            Log.e("saveFile", e.toString())
+        } finally {
+            input?.close()
+        }
+        return ""
     }
 
     fun getFileName(context: Context, uri: Uri): String {
