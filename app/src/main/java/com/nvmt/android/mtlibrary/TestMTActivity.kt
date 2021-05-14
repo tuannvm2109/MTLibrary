@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.nvmt.android.mtlibrary.base.iconbadge.IconBadgeView
 import com.nvmt.android.mtlibrary.base.ratestar.RateStarView
+import com.nvmt.android.mtlibrary.extension.setForceOnlyUpperCaseAlphaBet
 import com.nvmt.android.mtlibrary.extension.setTextHtml
 import com.nvmt.android.mtlibrary.extension.setTextHtmlWithImage
 
@@ -19,7 +20,8 @@ class TestMTActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        findViewById<TextView>(R.id.tv).setTextHtml(str)
+//        findViewById<TextView>(R.id.tv).setTextHtml(str)
+        findViewById<EditText>(R.id.edt).setForceOnlyUpperCaseAlphaBet()
 
 //        findViewById<TextView>(R.id.tv).setOnClickListener {
 ////            Log.d("asdf", findViewById<EditText>(R.id.img2).text.toString())

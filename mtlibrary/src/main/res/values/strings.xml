@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name" translatable="false">App Cas</string>
 
-    <string name="banner_url_test_0">https://1.bp.blogspot.com/-xmLV-ndC7M8/XszBqHMA_xI/AAAAAAAAmJA/53uO3K3Y9okVlMBsfqnQeFVp0DpxqcreQCLcBGAsYHQ/s1600/Anh-gai-xinh-deo-kinh%2B%252818%2529.jpg</string>
+    <string name="unique_tag" translatable="false">unique_tag</string>
+
+
+    <string name="banner_url_test_0" translatable="false">https://1.bp.blogspot.com/-xmLV-ndC7M8/XszBqHMA_xI/AAAAAAAAmJA/53uO3K3Y9okVlMBsfqnQeFVp0DpxqcreQCLcBGAsYHQ/s1600/Anh-gai-xinh-deo-kinh%2B%252818%2529.jpg</string>
     <string name="banner_url_test_1" translatable="false">https://hazomi.com/wp-content/uploads/2020/03/70616fe6ce53e9fedc661b4cbcf4234d.jpg</string>
     <string name="banner_url_test_2" translatable="false">https://i.vietgiaitri.com/2020/6/3/xinh-dep-lai-co-minh-day-cung-nguc-day-hotgirl-len-hinh-ben-bo-ma-bi-don-cap-dai-gia-19f-4981007.jpg</string>
     <string name="banner_url_test_3" translatable="false">http://cas.hoanvusolutions.com.vn/upload/banner/default.jpg</string>
