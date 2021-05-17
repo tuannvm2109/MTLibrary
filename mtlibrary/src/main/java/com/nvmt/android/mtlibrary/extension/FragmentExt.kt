@@ -60,8 +60,8 @@ fun Fragment?.showDialogListAnchor(
     anchorView: View,
     data: List<String?>,
     listener: (Int) -> Unit
-) {
-    if (this?.context == null) return
+): ListPopupWindow? {
+    if (this?.context == null) return null
 
     hideKeyboard()
     val listPopupWindow =
@@ -83,4 +83,5 @@ fun Fragment?.showDialogListAnchor(
         listPopupWindow.dismiss()
     }
     listPopupWindow.show()
+    return listPopupWindow
 }
