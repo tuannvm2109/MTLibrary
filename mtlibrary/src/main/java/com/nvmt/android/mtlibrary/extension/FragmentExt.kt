@@ -55,33 +55,3 @@ fun Fragment.makeDialCall(phone: String?) {
         toast("Không thể thực thực hiện cuộc gọi tới sđt này")
     }
 }
-
-fun Fragment?.showDialogListAnchor(
-    anchorView: View,
-    data: List<String?>,
-    listener: (Int) -> Unit
-): ListPopupWindow? {
-    if (this?.context == null) return null
-
-    hideKeyboard()
-    val listPopupWindow =
-        ListPopupWindow(requireContext())
-    if (data.size >= 5) {
-        listPopupWindow.height = 500
-    } else listPopupWindow.height = ListPopupWindow.WRAP_CONTENT
-    listPopupWindow.width = anchorView.width
-    listPopupWindow.anchorView = anchorView
-    val arrayAdapterStatus = ArrayAdapter<String?>(
-        requireContext(),
-        R.layout.support_simple_spinner_dropdown_item,
-        data
-    )
-    listPopupWindow.setAdapter(arrayAdapterStatus)
-    listPopupWindow.setOnItemClickListener { _: AdapterView<*>?, _: View?, position: Int, _: Long ->
-        if (position < 0 || position >= data.size) return@setOnItemClickListener
-        listener(position)
-        listPopupWindow.dismiss()
-    }
-    listPopupWindow.show()
-    return listPopupWindow
-}

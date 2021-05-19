@@ -189,37 +189,10 @@ fun Activity.makeDialCall(phone: String?) {
     }
 }
 
-fun Activity.showDialogListAnchor(
-    anchorView: View,
-    data: List<String?>,
-    listener: (Int) -> Unit
-) {
-    if (isFinishing) return
-
-    hideKeyboard()
-    val listPopupWindow =
-        ListPopupWindow(this)
-    if (data.size >= 5) {
-        listPopupWindow.height = 500
-    } else listPopupWindow.height = ListPopupWindow.WRAP_CONTENT
-    listPopupWindow.width = anchorView.width
-    listPopupWindow.anchorView = anchorView
-    val arrayAdapterStatus = ArrayAdapter<String?>(
-        this,
-        R.layout.support_simple_spinner_dropdown_item,
-        data
-    )
-    listPopupWindow.setAdapter(arrayAdapterStatus)
-    listPopupWindow.setOnItemClickListener { _: AdapterView<*>?, _: View?, position: Int, _: Long ->
-        if (position < 0 || position >= data.size) return@setOnItemClickListener
-        listener(position)
-        listPopupWindow.dismiss()
-    }
-    listPopupWindow.show()
-}
 
 fun Activity.setupStatusBarAndNavigationBar() {
-    // translucent status bar but not navigation bar
+    // translucent status bar but not navigation bar (after test, some device is not work :(( )
+    // Plus more, this make keyboard can't ajustpan and hide edittext
 
     window.setFlags(
         WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,

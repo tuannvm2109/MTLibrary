@@ -4,11 +4,23 @@ import android.content.Context
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import androidx.core.widget.addTextChangedListener
+import androidx.core.widget.doAfterTextChanged
+import com.google.android.material.textfield.TextInputLayout
 import com.nvmt.android.mtlibrary.R
 import com.nvmt.android.mtlibrary.base.MTConstant.DESTINATION_CHARACTERS
 import com.nvmt.android.mtlibrary.base.MTConstant.SOURCE_CHARACTERS
 import kotlinx.coroutines.*
 import java.util.*
+
+fun EditText.setOnlyClickListener(listener: () -> Unit, inputLayout: TextInputLayout? = null) {
+    this.movementMethod = null
+    this.keyListener = null
+    this.setOnFocusChangeListener { _, hasFocus -> if (hasFocus) this.performClick() }
+    if (inputLayout != null) this.doAfterTextChanged { inputLayout.error = null }
+    this.setOnClickListener {
+        listener.invoke()
+    }
+}
 
 fun EditText.setOnSearchDelayListener(listener: (String) -> Unit, delay: Long = 1500L) {
     val scope = CoroutineScope(context = Dispatchers.Main)
